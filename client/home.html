@@ -1,0 +1,48 @@
+<head>
+  <title>Awesome Chat App</title>
+  <style type="text/css">
+    #chat-message {
+      width: 500px;
+      height: 50px;
+    }
+
+    #messages {
+      width: 700px;
+      height: 300px;
+      border: 1px solid rgb(230, 230, 230);
+      margin: 0px 0px 10px 0px;
+    }
+  </style>
+</head>
+
+<body>
+  {{> mainBox}}
+</body>
+
+<!-- Main Chat Window -->
+<template name='mainBox'>
+  <div class='container'>
+    <h2>Awesome Chat App</h2>
+    <!-- shows login buttons -->
+    {{loginButtons}}
+    {{> chatBox}}
+  </div>
+</template>
+
+<!-- Chat Box with chat messages and the input box -->
+<template name='chatBox'>
+  <div id='messages'>
+    {{#each messages}}
+      {{>chatMessage}}
+    {{/each}}
+  </div>
+  <textarea id='chat-message'></textarea><br>
+  <button class='btn btn-primary' id='send'>Send Chat</button>
+</template>
+
+<!-- Template for the individual chat message -->
+<template name='chatMessage'>
+  <div>
+    <b>{{user}}:</b> {{message}}
+  </div>
+</template>
